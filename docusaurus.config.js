@@ -5,8 +5,8 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'weekndCN',
+  tagline: 'Personal Knowledge Comb Library',
   url: 'https://your-docs-test-site.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -22,13 +22,13 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/weekndCN/do c s/edit/main/website/',
+          editUrl: 'https://github.com/weekndCN/docs/edit/main/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/we e k n d CN/docs/edit/main/website/blog/',
+            'https://github.com/weeknd/docs/edit/main/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -39,27 +39,37 @@ const config = {
 
   themeConfig:
     ({
+      // web nav bar
       navbar: {
-        title: 'My Site',
+        title: 'weekndCN',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/logoBlack.svg',
         },
         items: [
           {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Doc',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/weekndCN/docs',
             label: 'GitHub',
             position: 'right',
           },
+
+          // add language switch button
+          {
+            type: 'localeDropdown',
+            position: 'left',
+          },
+
         ],
       },
+
+      // web footer block
       footer: {
         style: 'dark',
         links: [
@@ -68,7 +78,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/intro',
+                to: '/docs/index',
               },
             ],
           },
@@ -110,6 +120,23 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+
+  // add i18n
+  i18n: {
+    defaultLocale: 'zh-cn',
+    locales: ['en', 'zh-cn'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+      },
+      'zh-cn': {
+        label: '简体中文',
+        direction: 'ltr',
+      }
+    },
+  },
+
 };
 
 module.exports = config;
